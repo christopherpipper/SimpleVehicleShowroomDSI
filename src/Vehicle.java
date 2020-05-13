@@ -5,6 +5,8 @@ public class Vehicle {
     private String engineType;
     private int enginePower;
     private float tyreSize;
+    private int ID = 101;
+    private String vehicleId;
     /*  constructor: vehicle has attributes of - -
                                                 1. model number
                                                 2. engine type
@@ -22,9 +24,13 @@ public class Vehicle {
         this.engineType = inp.nextLine();
         System.out.print("Enter Engine power of your Vehicle: ");
         this.enginePower = inp.nextInt();
+        System.out.print("Enter Tyre Size of your Vehicle: ");
+        this.tyreSize = inp.nextFloat();
 
-        System.out.println("Model Number: "+ modelNumber + " Engine type: "+ " Engine Power: "+ enginePower);
+        setVehicleId();
 
+        System.out.println("Model Number:"+ modelNumber + " Engine type:"+ engineType + " Engine Power:"+ enginePower+ " Tyre Size:"+ tyreSize);
+        System.out.println("ID "+ vehicleId);
     }
 
 
@@ -40,6 +46,13 @@ public class Vehicle {
                  b. engine type diesel only
 
      */
+
+    //setting each vehicle with distinct id
+    private void setVehicleId(){
+        ID++;
+        this.vehicleId= modelNumber+ "" + ID;
+
+    }
 
 
 
