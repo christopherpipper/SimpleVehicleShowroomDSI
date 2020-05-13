@@ -12,8 +12,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="VehicleShowroomApp.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/VehicleShowroomApp.java">
+      <file leaf-file-name="VehicleDatabaseApp.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/VehicleDatabaseApp.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
@@ -43,6 +43,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/VehicleShowroomApp.java" />
+        <option value="$PROJECT_DIR$/src/VehicleDatabaseApp.java" />
       </list>
     </option>
   </component>
@@ -236,7 +237,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/VehicleShowroomApp.java">
+    <entry file="file://$PROJECT_DIR$/src/VehicleDatabaseApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
