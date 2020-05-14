@@ -33,7 +33,10 @@ public class Vehicle {
             else if(temp.toLowerCase().equals("c"))
             this.engineType = "Diesel";
 
-            else throw new Exception ();
+            else{
+                System.out.println("Please follow the instruction properly.");
+                throw new Exception ();
+            }
 
 
         System.out.print("Enter Engine power of your Vehicle: ");
@@ -121,41 +124,99 @@ public class Vehicle {
             else if (vehicle_type.toLowerCase().equals(typeSports.toLowerCase())||vehicle_type.equals("b")){
                 //2.Sports
 
-                vehicleTypes = "Vehicle Type: " + "(" +  typeSports ;
-                System.out.println("\n\t2. Enter the Type of Sports: " +
-                        "\n\t\t   Press a for Turbo" +
-                        "\n\t\t   Press b for Engine type oil only");
-                vehicle_type = inp.nextLine();
-                if (vehicle_type.toLowerCase().equals(typeSportsA.toLowerCase())||vehicle_type.equals("a")){
-                   //2a. Turbo
-                    vehicleTypes = vehicleTypes + typeSportsA + ")";
-                }
-                else if (vehicle_type.toLowerCase().equals(typeSportsB.toLowerCase())||vehicle_type.equals("b")){
+                vehicleTypes = "Vehicle Type: " + "(" +  typeSports +"-" ;
 
-                    //2b. Engine type oil
-                    vehicleTypes = vehicleTypes+ typeSportsB +")";
+                if(engineType.toLowerCase().equals("gas")||engineType.toLowerCase().equals("diesel")) {
+
+                    System.out.println("\n\t2. Enter the Type of Sports: " +
+                            "\n\t\t   Press a for Turbo" );
+                    vehicle_type = inp.nextLine();
+                    if (vehicle_type.toLowerCase().equals(typeSportsA.toLowerCase())||vehicle_type.equals("a")){
+                        //2a. Turbo
+                        vehicleTypes = vehicleTypes + typeSportsA + ")";
+                    }
+                    else{
+                        System.out.println("Please follow the instruction properly.");
+                        throw new Exception ();
+                    }
+
                 }
+                else
+                {
+                    System.out.println("\n\t2. Enter the Type of Sports: " +
+                            "\n\t\t   Press a for Turbo" +
+                            "\n\t\t   Press b for Engine type oil only");
+
+                    vehicle_type = inp.nextLine();
+                    if (vehicle_type.toLowerCase().equals(typeSportsA.toLowerCase())||vehicle_type.equals("a")){
+                        //2a. Turbo
+                        vehicleTypes = vehicleTypes + typeSportsA + ")";
+                    }
+                    else if (vehicle_type.toLowerCase().equals(typeSportsB.toLowerCase())||vehicle_type.equals("b")){
+                        //2b. Engine type oil
+                        vehicleTypes = vehicleTypes+ typeSportsB +")";
+                    }
+                    else{
+                        System.out.println("Please follow the instruction properly.");
+                        throw new Exception ();
+                    }
+
+
+
+                }
+
                 visitor+=20;
             }
+
             else if (vehicle_type.toLowerCase().equals(typeHeavy.toLowerCase())||vehicle_type.equals("c")){
                 //3.Heavy
-                vehicleTypes = "Vehicle Type: " + "(" +typeHeavy;
-                System.out.println("\n\t3. Enter the Type of Sports: " +
-                        "\n\t\t   Press a for Weight" +
-                        "\n\t\t   Press b for Engine type diesel only");
-                vehicle_type = inp.nextLine();
-                if (vehicle_type.toLowerCase().equals(typeHeavyA.toLowerCase())||vehicle_type.equals("a")){
-                    //3a. Weight
-                    vehicleTypes = vehicleTypes + typeHeavyA + ")";
-                }
-                else if (vehicle_type.toLowerCase().equals(typeHeavyB.toLowerCase())||vehicle_type.equals("b")){
+                vehicleTypes = "Vehicle Type: " + "(" +typeHeavy+"-";
 
-                    //3b. Engine type diesel only
-                    vehicleTypes = vehicleTypes+ typeHeavyB +")";
+
+
+                if(engineType.toLowerCase().equals("oil")||engineType.toLowerCase().equals("gas"))
+                {
+
+                    System.out.println("\n\t3. Enter the Type of Sports: " +
+                            "\n\t\t   Press a for Weight");
+                    vehicle_type = inp.nextLine();
+                    if (vehicle_type.toLowerCase().equals(typeHeavyA.toLowerCase())||vehicle_type.equals("a")){
+                        //3a. Weight
+                        vehicleTypes = vehicleTypes + typeHeavyA + ")";
+                    }
+                    else{
+                        System.out.println("Please follow the instruction properly.");
+                        throw new Exception ();
+                    }
+
                 }
+                else {
+                    System.out.println("\n\t3. Enter the Type of Sports: " +
+                            "\n\t\t   Press a for Weight" +
+                            "\n\t\t   Press b for Engine type diesel only");
+                    vehicle_type = inp.nextLine();
+                    if (vehicle_type.toLowerCase().equals(typeHeavyA.toLowerCase())||vehicle_type.equals("a")){
+                        //3a. Weight
+                        vehicleTypes = vehicleTypes + typeHeavyA + ")";
+                    }
+                    else if (vehicle_type.toLowerCase().equals(typeHeavyB.toLowerCase())||vehicle_type.equals("b")){
+
+                        //3b. Engine type diesel only
+                        vehicleTypes = vehicleTypes+ typeHeavyB +")";
+                    }
+                    else{
+                        System.out.println("Please follow the instruction properly.");
+                        throw new Exception ();
+                    }
+                }
+
+
             }
 
-            else throw new Exception ();
+            else{
+                System.out.println("Please follow the instruction properly.");
+                throw new Exception ();
+            }
 
             System.out.println("Added");
 
