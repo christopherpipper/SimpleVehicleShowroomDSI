@@ -19,16 +19,32 @@ public class Vehicle {
                                                 3. engine power
                                                 4. tire size
     */
-    public Vehicle (){
+    public Vehicle () throws Exception {
         Scanner inp = new Scanner(System.in);
         System.out.print("Enter Model Number of your Vehicle: ");
         this.modelNumber = inp.nextLine();
-        System.out.print("Enter the type of Engine: \n a.oil\n b.gas\n c.diesel\n");
-        this.engineType = inp.nextLine();
+        System.out.print("Enter the type of Engine: \n\t\tEnter a for Engine Type- oil\n\t\tEnter b for Engine Type- gas\n\t\tEnter c for Engine Type- diesel\n");
+
+            String temp = inp.nextLine();
+            if (temp.toLowerCase().equals("a"))
+                this.engineType = "Oil";
+            else if (temp.toLowerCase().equals("b"))
+                this.engineType = "Gas";
+            else if(temp.toLowerCase().equals("c"))
+            this.engineType = "Diesel";
+
+            else throw new Exception ();
+
+
         System.out.print("Enter Engine power of your Vehicle: ");
         this.enginePower = inp.nextInt();
+
+        //System.out.println("Engine power should be an Integer!");
+
         System.out.print("Enter Tyre Size of your Vehicle: ");
         this.tyreSize = inp.nextFloat();
+
+           //System.out.println("Tyre size should be float or integer!");
 
         setVehicleId();
 
@@ -38,15 +54,19 @@ public class Vehicle {
 
     }
 
-    public String printAll()
-    {
-        return "\nID "+ vehicleId +
-                "\nModelNumber:"+ modelNumber + " Enginetype:"+ engineType + " EnginePower:"+ enginePower+ " TyreSize:"+ tyreSize +
-                 "\n"+ vehicleTypes;
+    public String printAll() {
+        return "\nVehicle ID: " + vehicleId +
+                "\n------------------------"+
+                "\n\t" + vehicleTypes +
+                "\n\tModel Number: " + modelNumber +
+                "\n\tEngine type: " + engineType +
+                "\n\tEngine Power: " + enginePower +
+                "\n\tTyre Size: " + tyreSize;
     }
+
     public String printIDandModel()
     {
-        return "\nID:"+ vehicleId + " Model Number:"+ modelNumber +" "+vehicleTypes;
+        return "\nID: "+ vehicleId + "    Model: "+ modelNumber +"    "+vehicleTypes;
     }
     public String VehiclesWithVisitorCount()
     {
@@ -76,12 +96,12 @@ public class Vehicle {
                  b. engine type diesel only
 
      */
-    private void setTypeOfVehicle(){
+    private void setTypeOfVehicle() throws Exception {
         //set the three types of vehicles for counting the visitors
         System.out.println("Enter the Type of vehicle (Q for quit): " +
-                "\n\t1. Press a for Normal- No extra property Type" +
-                "\n\t2. Press b for Sports-" +
-                "\n\t3. Press c for Heavy-");
+                "\n\t   Press a for Normal- No extra property Type" +
+                "\n\t   Press b for Sports-" +
+                "\n\t   Press c for Heavy-");
 
         String typeNormal = "Normal";
         String typeSports = "Sports";
@@ -103,8 +123,8 @@ public class Vehicle {
 
                 vehicleTypes = "Vehicle Type: " + "(" +  typeSports ;
                 System.out.println("\n\t2. Enter the Type of Sports: " +
-                        "\n\t\t2.1 Press a for Turbo" +
-                        "\n\t\t2.2 Press b for Engine type oil only");
+                        "\n\t\t   Press a for Turbo" +
+                        "\n\t\t   Press b for Engine type oil only");
                 vehicle_type = inp.nextLine();
                 if (vehicle_type.toLowerCase().equals(typeSportsA.toLowerCase())||vehicle_type.equals("a")){
                    //2a. Turbo
@@ -121,8 +141,8 @@ public class Vehicle {
                 //3.Heavy
                 vehicleTypes = "Vehicle Type: " + "(" +typeHeavy;
                 System.out.println("\n\t3. Enter the Type of Sports: " +
-                        "\n\t\t3.1 Press a for Weight" +
-                        "\n\t\t3.2 Press b for Engine type diesel only");
+                        "\n\t\t   Press a for Weight" +
+                        "\n\t\t   Press b for Engine type diesel only");
                 vehicle_type = inp.nextLine();
                 if (vehicle_type.toLowerCase().equals(typeHeavyA.toLowerCase())||vehicle_type.equals("a")){
                     //3a. Weight
@@ -134,6 +154,8 @@ public class Vehicle {
                     vehicleTypes = vehicleTypes+ typeHeavyB +")";
                 }
             }
+
+            else throw new Exception ();
 
             System.out.println("Added");
 
