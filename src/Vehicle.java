@@ -5,7 +5,7 @@ public class Vehicle {
     private String engineType;
     private int enginePower;
     private float tyreSize;
-    private int ID = 101;
+    private static int ID = 101;
     private String vehicleId;
     public int visitor = 0;
 
@@ -32,14 +32,26 @@ public class Vehicle {
 
         setVehicleId();
 
-        SetType();
+        setTypeOfVehicle();
 
-        System.out.println("Model Number:"+ modelNumber + " Engine type:"+ engineType + " Engine Power:"+ enginePower+ " Tyre Size:"+ tyreSize);
-        System.out.println("ID "+ vehicleId);
 
-        System.out.println(vehicleTypes);
-        System.out.println("Visitors are: "+ visitor);
 
+    }
+
+    public String printAll()
+    {
+        return "\nID "+ vehicleId +
+                "\nModel Number:"+ modelNumber + " Engine type:"+ engineType + " Engine Power:"+ enginePower+ " Tyre Size:"+ tyreSize +
+                 "\n1"+ vehicleTypes +
+                "\nTotal visitors are: "+ visitor + " in number";
+    }
+    public String printIDandModel()
+    {
+        return "\nID: "+ vehicleId + " Model Number:"+ modelNumber;
+    }
+    public String printIDOnly()
+    {
+        return vehicleId;
     }
 
     //setting each vehicle with distinct id
@@ -61,7 +73,7 @@ public class Vehicle {
                  b. engine type diesel only
 
      */
-    private void SetType(){
+    private void setTypeOfVehicle(){
         //set the three types of vehicles for counting the visitors
         System.out.println("Enter the Type of vehicle (Q for quit): " +
                 "\n\t1. Normal- No extra property" +
