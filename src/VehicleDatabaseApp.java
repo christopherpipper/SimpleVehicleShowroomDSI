@@ -18,7 +18,7 @@ public class VehicleDatabaseApp {
                 break;
 
             else if (select.equals("a")){
-                //add any type of vehicle
+                //Adding any type of vehicle
                 System.out.println("How many vehicles do you want to Add:");
                 Scanner inp =  new Scanner(System.in);
                 numOfVehicle = inp.nextInt();
@@ -43,6 +43,7 @@ public class VehicleDatabaseApp {
 
             }
             else if (select.equals("b")){
+                //Removing a vehicle
 
                 System.out.println("Vehicles in stocks are: ");
 
@@ -93,6 +94,25 @@ public class VehicleDatabaseApp {
                 }
 
             }
+            else if (select.equals("c"))
+            {
+                //Showing list of vehicles with current expected visitor count
+                System.out.println("Showing list of vehicles with current expected visitor count:");
+                for(Vehicle var: vehicles){
+
+                    System.out.print(var.VehiclesWithVisitorCount());
+                }
+                System.out.println("\n-----------------------------------------------------------");
+                System.out.println("------------------ Current visitors: "+ Vehicle.visitor + " -------------------" );
+                System.out.println("-----------------------------------------------------------");
+
+
+
+
+            }
+
+
+
             else if (select.equals("d"))
             {
                 if(numOfVehicle==0)
@@ -108,6 +128,12 @@ public class VehicleDatabaseApp {
                 System.out.println("------------------------------------------------------------");
 
             }
+
+            else
+                System.out.println("Invalid Input, Try again...!!");
+
+
+
         }
 
 
@@ -117,7 +143,7 @@ public class VehicleDatabaseApp {
 
     }
     private String menu(){
-        System.out.println("\n\nWelcome to X Vehicle Shop" +
+        System.out.println("\nWelcome to X Vehicle Shop" +
                 "\nSelect an option:" +
                 "\n\t 1.Press a for adding any type of vehicle" +
                 "\n\t 2.Press b for Removing a vehicle" +
