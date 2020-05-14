@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class VehicleDatabaseApp {
@@ -25,75 +26,87 @@ public class VehicleDatabaseApp {
                 temp = init;
                 init+=numOfVehicle;
 
-                System.out.println("beforetemp"+temp+"init"+init);
                 for (int i=temp; i<init; i++)
                 {
                     vehicles.add(new Vehicle());
-                    //vehicles[i] =  new Vehicle();
                 }
 
-                System.out.println("aftertemp"+temp+"init"+init);
-                System.out.println("All the informations are added successfully.");
+                 System.out.println("All the informations are added successfully.");
 
-                System.out.println("##########");
+                System.out.print("----------------------------------------------------------");
                 for(Vehicle var: vehicles){
                     System.out.println(var.printAll());
                 }
 
-                System.out.println("##########");
-                /*for (int i=0; i<init; i++)
-                {
-                    //System.out.println("print numberofvehicle" +numOfVehicle);
-
-                    System.out.println(vehicles[i].printAll());
-                }*/
+                System.out.println("----------------------------------------------------------");
 
 
             }
             else if (select.equals("b")){
 
-                System.out.println("Vehicles in stock: ");
-                /*for (int i=0; i<init; i++)
-                {
+                System.out.println("Vehicles in stocks are: ");
 
-                    System.out.print(vehicles[i].printIDandModel());
-                }*/
+
+                for(Vehicle var: vehicles){
+                    System.out.print(var.printIDandModel());
+                }
+
+                System.out.print("\nPlease enter Vehicle ID to remove:(q to back)");
+                Scanner in = new Scanner(System.in);
+                String match = in.nextLine();
+                if(match.toLowerCase().equals("q")){
+                    continue;
+                }
+
+                boolean checker = false;
+
+
+                //for(Vehicle var: vehicles)
+                for (Iterator<Vehicle> iterator = vehicles.iterator(); iterator.hasNext(); ) {
+                    Vehicle value = iterator.next();
+                    //System.out.println("DEBUGGING = var"+var+ "##PrintID"+var.printIDOnly()+"##match"+match);
+                    if (value.printIDOnly().equals(match)){
+                        //decreasing visitors
+                        if (value.vehicleTypes.indexOf("Sports")>0)
+                        {
+
+                            value.visitor-=20;
+                        }
+                        iterator.remove();
+                        checker = true;
+
+                    }
+
+
+
+                }
+
+                System.out.println("Vehicle removed: "+checker);
+                if(checker==false){
+                    System.out.println("No Vehicle available at this ID, Try again");
+                }
+                else
+                System.out.print("List of vehicle "); if(checker) System.out.print("After remove:");
 
                 for(Vehicle var: vehicles){
                     System.out.println(var.printIDandModel());
                 }
 
-                System.out.print("\nPlease enter Vehicle ID to remove:");
-                Scanner in = new Scanner(System.in);
-                String match = in.nextLine();
-                /*for (int i=0; i<init; i++)
-                {
-                    if (vehicles[i].printIDOnly().equals(match)){
-                        vehicles[i] = null;
-                        break;
-                    }
-                }*/
-
-                for(Vehicle var: vehicles){
-                    if (var.printIDOnly().equals(match)){
-                    vehicles.remove(var);
-                }
-                }
-
             }
             else if (select.equals("d"))
             {
-                /*for (int i=0; i<init; i++)
+                if(numOfVehicle==0)
                 {
-                    System.out.println("print numberofvehicle" +init);
-
-                    System.out.println(vehicles[i].printAll());
-                }*/
-
-                for(Vehicle var: vehicles){
-                    System.out.println(var.printAll()
-                    );
+                    System.out.println("There is no vehicle in your shop. Go back to menu and press a to add.");
                 }
+                for(Vehicle var: vehicles){
+
+                    System.out.println(var.printAll());
+                }
+                System.out.println("------------------------------------------------------------");
+                System.out.println("Your total visitors: "+ Vehicle.visitor );
+                System.out.println("------------------------------------------------------------");
+
             }
         }
 
@@ -104,7 +117,7 @@ public class VehicleDatabaseApp {
 
     }
     private String menu(){
-        System.out.println("Welcome to X Vehicle Shop" +
+        System.out.println("\n\nWelcome to X Vehicle Shop" +
                 "\nSelect an option:" +
                 "\n\t 1.Press a for adding any type of vehicle" +
                 "\n\t 2.Press b for Removing a vehicle" +
