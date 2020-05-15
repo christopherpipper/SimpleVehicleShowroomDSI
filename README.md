@@ -25,3 +25,18 @@ versa
 * show list of vehicles with details
 
 ### Language Preferred: ​ Java
+
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+You need to have java installed on your system. Download from [here](https://www.oracle.com/java/technologies/javase-downloads.html)
+
+#### Running the VehicleShowroom
+```
+$ git clone https://github.com/nafizzzzzzzzzz/SimpleVehicleShowroomDSI
+$ cd SimpleVehicleShowroom/src/
+$ javac VehicleDatabaseApp.java
+$ java VehicleDatabaseApp.java
+
+```
