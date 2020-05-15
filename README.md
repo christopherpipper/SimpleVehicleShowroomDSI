@@ -17,7 +17,7 @@
       * engine type oil only
     * heavy -
       * weight
-    * engine type diesel only
+      * engine type diesel only
 * expected visitor of show room is 30
 * when a new sports vehicle arrive expected visitor increase by 20 and vice
 versa
